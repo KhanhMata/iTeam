@@ -1,12 +1,12 @@
 <% @exams.each do |exam| %>
   <% subject = exam.subject %>
   <tr>
-    <td><%= exam.created_at.strftime(t "datetime_format") %></td>
+    <td></td>
     <td><%= exam.subject.name %></td>
     <td><%= render "shared/exam_status_label", status: exam.status %></td>
     <td class="center"><%= subject.duration %></td>
     <td class="center"><%= exam.exam_questions.count %></td>
-    <td><%= Time.at(exam.time).utc.strftime t("time_format") %></td>
+    <td></td>
     <td class="center">
       <% if exam.uncheck? || exam.checked? %>
         <%= "#{exam.get_score}/#{exam.exam_questions.count}" %>
