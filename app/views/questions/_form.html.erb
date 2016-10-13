@@ -1,0 +1,28 @@
+<%= form_for [:user, @question] do |f| %>
+  <%= render "shared/error_messages", object: @question %>
+  <div class="form-group">
+    <%= f.label :subject_id %>
+    <%= f.select :subject_id,
+      @subjects.collect {|subject| [subject.name, subject.id]},
+      {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :content, placeholder: t(".question_content"),
+      error: t(".question_content_error") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer_type %>
+    <%= f.select :answer_type, Question.answer_types.keys.to_a, {},
+      {class: "form-control"} %>
+  </div>
+  <div id ="answer_field">
+    <%= f.fields_for :answers do |answer_builder| %>
+      <%= render "answer_fields", f: answer_builder %>
+    <% end %>
+    <div class="add_fields">
+      <%= link_to_add_fields t(".add_answer"), f, :answers %>
+    </div>
+  </div>
+  <%= f.submit t(".submit_button"),
+    class: "btn btn-primary space-top-submit" %>
+<% end %>

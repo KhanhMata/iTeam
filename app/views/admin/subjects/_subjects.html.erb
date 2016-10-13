@@ -1,0 +1,14 @@
+<% @subjects.each do |subject| %>
+  <tr>
+    <td><%= link_to subject.name, [:admin, subject] %></td>
+    <td><%= subject.question_number %></td>
+    <td><%= subject.duration %></td>
+    <td>
+      <%= link_to t(".edit"), edit_admin_subject_path(subject.id),
+        class: "btn btn-primary" %>
+      <%= link_to t(".delete"), admin_subject_path(subject.id),
+        method: :delete, data: {confirm: t(".delete_subject_confirm")},
+        class: "btn btn-danger" %>
+    </td>
+  </tr>
+<% end %>

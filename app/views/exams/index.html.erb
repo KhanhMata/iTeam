@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="form-exam">
+      <%= form_for @exam, html: {class: "form-inline"} do |f| %>
+        <%= f.select :subject_id,
+          @subjects.collect {|subject| [subject.name, subject.id]},
+          {}, {class: "form-control"} %>
+        <%= f.submit t(".create_button"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <hr>
+    <h2><%= t ".exam_list" %></h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="info">
+          <th class="created_at"><%= t ".created_date" %></th>
+          <th class="subject"><%= t ".subject_name" %></th>
+          <th class="status"><%= t ".status" %></th>
+          <th class="duration"><%= t ".duration" %></th>
+          <th class="question_nunmber"><%= t ".question_number" %></th>
+          <th class="time"><%= t ".time" %></th>
+          <th class="marks"><%= t ".marks" %></th>
+          <th class="action"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <%= render "index" %>
+    </table>
+  </div>
+</div>

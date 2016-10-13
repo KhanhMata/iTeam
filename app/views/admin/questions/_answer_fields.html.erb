@@ -1,0 +1,16 @@
+<div class="form-group choice_question">
+  <%= f.label t(".answer") %>
+  <div class="col-md-12">
+    <div class="col-md-8">
+      <%= f.text_field :content, label: false,
+       placeholder: t(".answer_content"),error: t(".answer_content_error") %>
+    </div>
+    <div class="col-md-3 space-top-remove">
+      <%= f.check_box :is_correct, class: "answers_checkbox" %>
+      <%= f.label :is_correct %>
+    </div>
+    <div class="col-md-1 space-top-remove">
+      <%= link_to_remove_fields t(".remove_answer"), f %>
+    </div>
+  </div>
+</div>

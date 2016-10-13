@@ -1,0 +1,26 @@
+<h1><%= t ".title" %></h1>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to t(".new_question"), new_admin_subject_question_path(@subject),
+    class: "btn btn-primarys" %>
+  </div>
+</div>
+<div class="row">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="info">
+        <th><%= t ".content" %></th>
+        <th><%= t ".subject" %></th>
+        <th><%= t ".type_answer" %></th>
+        <th><%= t ".create_date" %></th>
+        <th><%= t ".confirmed" %></th>
+        <th><%= t ".actions" %></th>
+      </tr>
+    </thead>
+    <tbody class="subject-index">
+      <%= render "question" %>
+    </tbody>
+  </table>
+  <%= will_paginate @questions %>
+  <div id="question-modal" class="modal fade"></div>
+</div>

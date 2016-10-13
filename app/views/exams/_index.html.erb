@@ -1,0 +1,19 @@
+<% @exams.each do |exam| %>
+  <% subject = exam.subject %>
+  <tr>
+    <td><%= exam.created_at.strftime(t "datetime_format") %></td>
+    <td><%= exam.subject.name %></td>
+    <td><%= render "shared/exam_status_label", status: exam.status %></td>
+    <td><%= subject.duration %></td>
+    <td><%= exam.exam_questions.count %></td>
+    <td><%= Time.at(exam.time).utc.strftime t("time_format") %></td>
+    <td>
+      <%= exam.checked? ? "#{exam.marks}/#{subject.question_number}" : "-" %>
+    </td>
+    <% if exam.start? %>
+      <td><%= link_to t(".start_button"), "#", class: "btn btn-primary" %></td>
+    <% else %>
+      <td><%= link_to t(".view_button"), "#", class: "btn btn-success" %></td>
+    <% end %>
+  </tr>
+<% end %>

@@ -1,0 +1,10 @@
+<div class="col-md-10 col-md-offset-1 width-flash">
+  <div class="row exam">
+    <%= render "exam" %>
+    <%= hidden_field_tag :remaining_time, @exam.get_remain_time %>
+    <div class="col-md-2 col-md-offset-1 timer">
+      <h4><%= t ".time_remain" %></h4>
+      <div id="clock"></div>
+    </div>
+  </div>
+</div>

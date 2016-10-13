@@ -1,0 +1,16 @@
+<% if status %>
+  <% case status %>
+  <% when Settings.status.exam.checked %>
+    <span class="label label-danger">
+  <% when Settings.status.exam.uncheck %>
+    <span class="label label-info">
+  <% when Settings.status.exam.testing %>
+    <span class="label label-warning">
+  <% else %>
+    <span class="label label-success">
+  <% end %>
+  <%= t "labels.status.exam.#{status}" %></span>
+<% else %>
+  <span class="label label-default">
+  <%= t "labels.status.exam.inactive" %></span>
+<% end %>

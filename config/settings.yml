@@ -1,0 +1,27 @@
+framgialink: "https://www.facebook.com/FramgiaVietnam"
+khanhlink: "http://www.facebook.com/khanhmata.dn"
+nguyenlink: "https://www.facebook.com/thaonguyen.tran.7311352"
+rubyrailslink: "http://www.railstutorial.org/"
+nothing: "#"
+pagination:
+  per_page: 10
+  size: 10
+remember_value: 1
+user_per_page: 20
+minimum_answer: 1
+status:
+  exam:
+    start: "start"
+    testing: "testing"
+    uncheck: "uncheck"
+    checked: "checked"
+    inactive: "inactive"
+exams:
+  default_score: 0
+  default_spent_time: 0
+  default_correct: false
+questions:
+  answer_type:
+    single_choice: "single_choice"
+    multi_choice: "multi_choice"
+    text: "text"

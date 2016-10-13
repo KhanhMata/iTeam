@@ -1,0 +1,44 @@
+<h1><%= @subject.name %></h1>
+<div class="row center">
+  <div class="col-md-12">
+    <%= link_to t(".new_question"), new_admin_subject_question_path(@subject),
+    class: "btn btn-primarys" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% @subject.questions.each_with_index do |question, index| %>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= "#{index + 1}. #{question.content}" %>
+        </div>
+        <div class="panel-body">
+          <% question.answers.each do |answer| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= render "shared/correct_status_label",
+                  is_correct: answer.is_correct unless question.text? %>
+              </div>
+              <div class="col-md-10">
+                <%= answer.content %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-4">
+              <%= link_to t(".edit_button"), edit_admin_subject_question_path(@subject, question),
+                class: "btn btn-success btn-block" %>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+              <%= link_to t(".delete_button"), admin_subject_question_path(@subject, question),
+                method: :delete, class: "btn btn-danger btn-block",
+                data: {confirm: t(".delete_question_confirm")} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

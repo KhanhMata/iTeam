@@ -1,0 +1,10 @@
+<% @questions.each_with_index do |question, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= link_to question.content,
+      user_question_path(current_user, question) %></td>
+    <td><%= question.subject.name %></td>
+    <td><%= question.answer_type %></td>
+    <td><%= question.status %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,17 @@
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.content %></td>
+    <td><%= question.subject.name %></td>
+    <td><%= question.answer_type %></td>
+    <td><%= time_tag question.created_at %></td>
+    <td><%= t question.status %></td>
+      <td>
+      <%= link_to t(".edit"), edit_admin_subject_question_path(@subject,question.id),
+       class: "btn btn-primary" %>
+      <%= link_to t(".delete"), admin_subject_question_path(@subject,
+         question.id),
+        method: :delete, data: {confirm: t(".delete_question_confirm")},
+        class: "btn btn-danger" %>
+    </td>
+  </tr>
+<% end %>
