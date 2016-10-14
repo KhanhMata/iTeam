@@ -1,0 +1,13 @@
+<% if question.confirmed? %>
+  <span class="label label-success">
+    <%= t "labels.status.question.confirmed" %>
+  </span>
+<% elsif question.rejected? %>
+  <span class="label label-danger">
+    <%= t "labels.status.question.rejected" %>
+  </span>
+<% else %>
+  <span class="label label-info">
+    <%= t "labels.status.question.not_confirm" %>
+  </span>
+<% end %>

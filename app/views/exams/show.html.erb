@@ -3,8 +3,13 @@
     <%= render "exam" %>
     <%= hidden_field_tag :remaining_time, @exam.get_remain_time %>
     <div class="col-md-2 col-md-offset-1 timer">
-      <h4><%= t ".time_remain" %></h4>
-      <div id="clock"></div>
+      <div class="containe">
+     <div class="content">
+       <div class="hours">0</div>
+       <div class="minutes">30</div>
+       <div class="seconds">60</div>
+     </div>
+   </div>
     </div>
   </div>
 </div>

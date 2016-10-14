@@ -1,3 +1,21 @@
 <% provide :modal_title, t(".edit_question") %>
-<% provide :submit_button, t(".edit_button") %>
+<% provide :submit_button, t(".save_button") %>
+<% provide :title, t("title") %>
 <%= render "form" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <%= t ".confirm" %>
+      </div>
+      <div class="panel-body">
+      <% Settings.questions.status.each do |key, value| %>
+        <%= link_to admin_question_path(@question,
+          question: {status: key}), method: :put, class: "button" do %>
+          <%= t value %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

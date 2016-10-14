@@ -1,0 +1,17 @@
+<div class="center row">
+  <%= search_form_for @search, url: admin_questions_path do |f| %>
+    <div class="col-md-3">
+      <%= t "search.user.name" %>
+      <%= f.text_field :content_cont, class: "form-control" %>
+    </div>
+    <div class="col-md-5">
+      <%= t "search.subject" %>
+      <%= f.collection_select :subject_id_eq, @subjects,
+        :id, :name, {include_blank: t("all")}, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <br />
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

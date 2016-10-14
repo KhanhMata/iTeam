@@ -1,0 +1,52 @@
+.is-countdown {
+  border: 1px solid #ccc;
+  background-color: #eee;
+}
+
+.countdown-show3 .countdown-section {
+  width: 32.5%;
+}
+
+.countdown-section {
+  display: block;
+  float: left;
+  font-size: 75%;
+  text-align: center;
+}
+
+.countdown-amount {
+  font-size: 200%;
+}
+
+.countdown-period {
+  display: block;
+}
+
+.exam {
+  li {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  #clock {
+    font-size: 16px;
+    font-weight: bold;
+    border: none !important;
+    background-color: inherit !important;
+  }
+}
+
+$border-background: "http://www.w3schools.com/cssref/border.png";
+
+.border-image {
+  border: 10px solid transparent;
+  padding: 5px;
+  -webkit-border-image: url($border-background) 30 round; /* Safari 3.1-5 */
+  -o-border-image: url($border-background) 30 round; /* Opera 11-12.1 */
+  border-image: url($border-background) 30 round;
+}

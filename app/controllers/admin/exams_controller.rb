@@ -3,8 +3,10 @@ class Admin::ExamsController < ApplicationController
   before_action :load_exam, only: [:show, :update]
 
   def index
+    @exam = Exam.new
     @exams = Exam.latest_update.page(params[:page])
       .per_page Settings.pagination.per_page
+    @subjects = Subject.all
   end
 
   def show

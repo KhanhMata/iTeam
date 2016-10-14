@@ -137,9 +137,9 @@ en:
         new:
           create_button: "Save"
   exams:
-    questions:
-      save: "Save"
-      checked: "Checked"
+    timeout: "Timeout. The exam is finished. The result will be sent to you."
+    exam_date: "Exam start at: %{date}"
+    time_out: "Your exam is time out. We are going to submit your test automatically"
     index:
       start_button: "Start"
       view_button: "View"
@@ -148,11 +148,43 @@ en:
       status: "Status"
       duration: "Duration"
       question_number: "Question number"
-      time: "Spent Time"
-      marks: "Marks"
+      spent_time: "Spent Time"
+      score: "Score"
+      action: "Action"
       create_button: "Create Exam"
       exam_list: "Examination List"
       title: "Exams"
+    show:
+      time_remain: "Time remain:"
+      hour: "Hours"
+      minute: "Minutes"
+      second: "Seconds"
+    questions:
+      save: "Save"
+      finish: "Finish"
+      finish_confirm: "Are you sure you want to finish this exam? This action cannot be undone!"
+    answers:
+      content_answer: "Your answer"
+      content_answer_holder: "Type your answer here..."
+      content_answer_hint: "This is a text answer. Please type your answer to the above field."
+    exam:
+      result: "Exam's result"
+      check_button: "Admin checking"
+  labels:
+    status:
+      exam:
+        start: "start"
+        testing: "testing"
+        uncheck: "uncheck"
+        checked: "checked"
+        inactive: "inactive"
+      exam_question:
+        correct: "correct"
+        incorrect: "incorrect"
+      question:
+        confirmed: "confirmed"
+        rejected: "rejected"
+        not_confirm: "waiting"
   labels:
     status:
       exam:

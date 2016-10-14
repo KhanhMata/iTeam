@@ -1,17 +1,11 @@
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.content %></td>
-    <td><%= question.subject.name %></td>
-    <td><%= question.answer_type %></td>
-    <td><%= time_tag question.created_at %></td>
-    <td><%= t question.status %></td>
-      <td>
-      <%= link_to t(".edit"), edit_admin_subject_question_path(@subject,question.id),
-       class: "btn btn-primary" %>
-      <%= link_to t(".delete"), admin_subject_question_path(@subject,
-         question.id),
-        method: :delete, data: {confirm: t(".delete_question_confirm")},
-        class: "btn btn-danger" %>
-    </td>
-  </tr>
-<% end %>
+<tr>
+  <td class="center"><%= question.content %></td>
+  <td class="center"><%= question.subject.name %></td>
+  <td class="center"><%= question.user.name %></td>
+  <td class="center"><%= time_tag question.created_at %></td>
+  <td class="center"><%= t question.status  %></td>
+  <td class="center">
+    <%= link_to t("suggested_question.check"),
+      edit_admin_question_path(question), class: "btn btn-info" %>
+  </td>
+</tr>

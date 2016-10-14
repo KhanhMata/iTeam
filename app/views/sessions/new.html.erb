@@ -1,3 +1,4 @@
+<% unless logged_in? %>
 <% provide :title, t("login") %>
 <h1><%= t "login" %></h1>
 
@@ -23,3 +24,4 @@
     <p><%= t "new_user" %> <%= link_to t("signupnow"), signup_path %></p>
   </div>
 </div>
+<% end %>

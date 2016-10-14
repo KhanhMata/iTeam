@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20161006035845) do
 
   create_table "exams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "status"
+    t.datetime "started_at"
     t.integer  "marks"
-    t.integer  "time"
+    t.integer  "spent_time"
     t.integer  "user_id"
     t.integer  "subject_id"
     t.datetime "created_at", null: false

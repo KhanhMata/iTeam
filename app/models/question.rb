@@ -1,7 +1,8 @@
 class Question < ApplicationRecord
   belongs_to :user
   belongs_to :subject
-  has_many :answers, dependent: :destroy
+  has_many :exam_questions, dependent: :destroy
+  has_many :answers
 
   scope :alphabet, ->{order :content}
   enum status: {not_confirm: 0, confirmed: 1, rejected: 2}

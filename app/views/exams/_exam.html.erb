@@ -5,7 +5,20 @@
       date: @exam.started_at.strftime(t "datetime_format") %>
     <%= tag(:br) %>
     <center><b><h2><%= @exam.subject.name %></h2></b></center>
+    <% if current_user.admin? && (@exam.uncheck? || @exam.checked?) %>
+      <%= tag(:hr) %>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <%= t ".result" %>
+        </div>
+        <div class="panel-body">
+          <%= link_to t(".check_button"), admin_exam_path(@exam),
+            class: "btn btn-danger pull-right" %>
+        </div>
+      </div>
+    <% end %>
     <%= tag(:hr) %>
     <input type="hidden" name="duration" id="duration" value="0">
   </div>
+  <%= render "questions" %>
 </div>

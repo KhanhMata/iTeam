@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <div>
+        <%= t "question.question" %>
+        <%= @question.content %>
+      </div>
+      <div>
+        <%= t "question.type" %>
+        <%= t question.answer_type %>
+      </div>
+      <div>
+        <%= t "question.status" %>:
+      <%= t question.status %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <% question.answers.each do |answer| %>
+      <div class ="checkbox">
+        <label>
+          <%= check_box_tag answer.content, answer.is_correct? ?
+            "yes" : "no", true, disabled: true %>
+          <%= answer.content %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -3,12 +3,15 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = @subject.questions
-      .page(params[:page]).per_page Settings.pagination.per_page
+    @subjects = Subject.all
+    @search = Question.contributed.ransack params[:q]
+    @statuses = Question.statuses
+    @questions =  @search.result.page(params[:page]).per_page(Settings.pagination.per_page)
   end
 
   def new
-    @question = @subject.questions.new
+    @question.answers.new
+    @subjects = Subject.all
   end
 
   def create

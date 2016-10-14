@@ -5,6 +5,13 @@
       user_question_path(current_user, question) %></td>
     <td><%= question.subject.name %></td>
     <td><%= question.answer_type %></td>
-    <td><%= question.status %></td>
+    <td><%= render "shared/question_status_label", question: question %></td>
+    <td>
+      <%= link_to "", edit_user_question_path(current_user, question),
+        class: "glyphicon glyphicon-edit icon-padding link-underline" %>
+      <%= link_to "", user_question_path(current_user, question),
+        method: :delete, data: {confirm: t(".delete_question_confirm")},
+        class: "glyphicon glyphicon-trash icon-padding link-underline" %>
+    </td>
   </tr>
 <% end %>

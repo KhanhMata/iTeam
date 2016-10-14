@@ -1,0 +1,60 @@
+<div id="question" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2><b><%= t ".question" %></b></h2>
+    <table id="table-show">
+      <tbody>
+        <tr>
+          <td><b><%= t ".content" %></b></td>
+          <td><%= @question.content %></td>
+        </tr>
+        <tr>
+          <td><b><%= t ".answers" %></b></td>
+          <td>
+            <table id="table-show-render">
+              <tbody>
+                <% @question.answers.each do |answer| %>
+                  <tr>
+                    <td>
+                      <%= render "shared/correct_status_label",
+                        is_correct: answer.is_correct %>
+                    </td>
+                    <td></td>
+                    <td>
+                      <%= answer.content %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><b><%= t ".subject_name" %></b></td>
+          <td><%= @question.subject.name %></td>
+        </tr>
+        <tr>
+          <td><b><%= t ".answer_type" %></b></td>
+          <td><%= @question.answer_type %></td>
+        </tr>
+        <tr>
+          <td><b><%= t ".status" %></b></td>
+          <td>
+            <%= render "shared/question_status_label", question: @question %>
+          </td>
+        </tr>
+        <tr>
+          <td><b><%= t ".actions" %></b></td>
+          <td>
+            <%= link_to t(".edit"),
+              edit_user_question_path(current_user, @question),
+              class: "btn btn-primary" %>
+            <%= link_to t(".delete"),
+              user_question_path(current_user, @question),
+              method: :delete, data: {confirm: t(".delete_question_confirm")},
+              class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
